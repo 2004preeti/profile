@@ -13,7 +13,7 @@ import { ResumeModal } from "@/components/ResumeModal";
 
 export default function Home() {
   const [resumeOpen, setResumeOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
     if (theme === "dark") {

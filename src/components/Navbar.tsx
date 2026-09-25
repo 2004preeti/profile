@@ -19,7 +19,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenResume,
-  theme = "light",
+  theme = "dark",
   onToggleTheme,
 }) => {
   const [scrolled, setScrolled] = useState(false);
