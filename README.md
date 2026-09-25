@@ -1,4 +1,4 @@
-# Preeti Pal — Software Engineer (SDE-1) Portfolio
+# Preeti Pal — Software Engineer Portfolio
 
 Modern, high-performance portfolio website built with **Next.js**, **React**, **TypeScript**, and **Tailwind CSS**.
 

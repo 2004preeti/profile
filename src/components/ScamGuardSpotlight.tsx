@@ -67,7 +67,7 @@ export const ScamGuardSpotlight: React.FC = () => {
     {
       title: "Verified Tech Interview Invitation",
       input:
-        "Hi Preeti, great reviewing your portfolio for the SDE-1 role. Here is the Google Meet link for our technical round tomorrow at 3 PM.",
+        "Hi Preeti, great reviewing your portfolio for the Software Engineer role. Here is the Google Meet link for our technical round tomorrow at 3 PM.",
       risk: "CLEAN / SAFE",
       score: 2,
       category: "Verified Corporate Communication",

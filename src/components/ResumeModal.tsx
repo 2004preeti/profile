@@ -574,7 +574,7 @@ CERTIFICATIONS & ACHIEVEMENTS
 
           <div className="flex items-center gap-3">
             <a
-              href="mailto:preeti2072004@gmail.com?subject=Interview Invitation for SDE-1 Role&body=Hi Preeti,%0D%0AWe reviewed your portfolio and resume and would love to schedule a technical discussion."
+              href="mailto:preeti2072004@gmail.com?subject=Interview Invitation for Software Engineer Role&body=Hi Preeti,%0D%0AWe reviewed your portfolio and resume and would love to schedule a technical discussion."
               className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold text-xs shadow-md hover:opacity-95 transition-all"
             >
               Email Preeti

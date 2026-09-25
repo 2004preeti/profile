@@ -18,9 +18,6 @@ export const Footer: React.FC = () => {
               <span className="text-base font-extrabold text-slate-900 dark:text-white">
                 {PERSONAL_INFO.name}
               </span>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
-                SDE-1
-              </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               Software Engineer • React Native, Next.js & Full-Stack Development.

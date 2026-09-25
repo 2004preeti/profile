@@ -61,7 +61,7 @@ export const Contact: React.FC = () => {
             </span>
           </h2>
           <p className="mt-2 text-slate-600 dark:text-slate-300 text-sm">
-            Actively interviewing for Software Engineer (SDE-1), React Native, and Full-Stack roles.
+            Actively interviewing for Software Engineer, React Native, and Full-Stack roles.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export const Contact: React.FC = () => {
             <div>
               <h3 className="text-xl font-black text-slate-900 dark:text-white">Preeti Pal</h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
-                Software Engineer (SDE-1)
+                Software Engineer
               </p>
             </div>
 
@@ -200,7 +200,7 @@ export const Contact: React.FC = () => {
                   <textarea
                     rows={4}
                     required
-                    placeholder="We'd like to invite you for an SDE-1 interview..."
+                    placeholder="We'd like to invite you for an interview..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 resize-none"

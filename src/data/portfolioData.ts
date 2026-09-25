@@ -33,8 +33,8 @@ export interface SkillCategory {
 
 export const PERSONAL_INFO = {
   name: "Preeti Pal",
-  title: "Software Engineer (SDE-1)",
-  headline: "React Native & MERN Stack Developer | SDE-1",
+  title: "Software Engineer",
+  headline: "React Native & MERN Stack Developer",
   bio: "React Native and MERN stack developer with experience building mobile apps for live products, including a multi-vendor e-commerce app and a cross-platform cybersecurity platform. Strong foundation in data structures and algorithms with 150+ problems solved.",
   location: "Ayodhya, Uttar Pradesh, India",
   phone: "(+91) 6395748319",

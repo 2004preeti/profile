@@ -73,15 +73,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               {PERSONAL_INFO.name}
             </span>
-            <span
-              className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
-                isLight
-                  ? "bg-cyan-50 text-cyan-800 border-cyan-300 font-extrabold"
-                  : "bg-cyan-500/10 text-cyan-300 border-cyan-500/20"
-              }`}
-            >
-              SDE-1
-            </span>
           </div>
         </a>
 

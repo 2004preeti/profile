@@ -35,7 +35,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
   const handleCopyConfig = () => {
     const configStr = `export const developer = {
   name: "Preeti Pal",
-  role: "Software Engineer (SDE-1)",
+  role: "Software Engineer",
   coreStack: ["React Native", "Next.js", "Node.js", "MongoDB"],
   flagship: "ScamGuard AI & Goldgini",
   dsaSolved: "150+ Problems",
@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             <div className="space-y-2">
               <div className="text-xs uppercase font-extrabold tracking-widest text-cyan-600 dark:text-cyan-400 flex items-center gap-2">
                 <span className="w-5 h-[2px] bg-cyan-500"></span>
-                <span>Software Engineer (SDE-1)</span>
+                <span>Software Engineer</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
@@ -208,7 +208,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                 </p>
                 <p className="pl-4">
                   <span className="text-blue-400">role</span>:{" "}
-                  <span className="text-emerald-300">&quot;Software Engineer (SDE-1)&quot;</span>,
+                  <span className="text-emerald-300">&quot;Software Engineer&quot;</span>,
                 </p>
                 <p className="pl-4">
                   <span className="text-blue-400">experience</span>:{" "}

@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Preeti Pal | Software Engineer (SDE-1) | Portfolio",
+  title: "Preeti Pal | Software Engineer | Portfolio",
   description:
-    "Portfolio of Preeti Pal — Software Engineer (SDE-1) building high-performance web, mobile, and AI applications. Creator of ScamGuard, Goldgini AR E-Commerce, 150+ DSA solved.",
+    "Portfolio of Preeti Pal — Software Engineer building high-performance web, mobile, and AI applications. Creator of ScamGuard, Goldgini AR E-Commerce, 150+ DSA solved.",
   keywords: [
     "Preeti Pal",
     "Software Engineer",
-    "SDE-1",
     "React Native",
     "Next.js",
     "React.js",
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Preeti Pal", url: "https://scamguard-website.vercel.app/" }],
   openGraph: {
-    title: "Preeti Pal | Software Engineer (SDE-1)",
+    title: "Preeti Pal | Software Engineer",
     description:
       "Explore Preeti Pal's software engineering portfolio, production experience at Kushmanda Cosmetics & Samra Infotech, ScamGuard platform, and 150+ DSA problem solutions.",
     url: "https://scamguard-website.vercel.app/",
