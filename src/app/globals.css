@@ -1,0 +1,666 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #04060f;
+    --foreground: #f8fafc;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Custom high-tech scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #04060f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #06b6d4, #3b82f6);
+  }
+}
+
+@layer utilities {
+  /* Ultra-Premium Glassmorphism */
+  .glass-card {
+    background: rgba(13, 18, 38, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card-hover {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(56, 189, 248, 0.25), 0 0 25px -5px rgba(56, 189, 248, 0.2);
+  }
+
+  .glass-pill {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Radiant Glow Cards */
+  .glow-cyan {
+    box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.35);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 40px -10px rgba(168, 85, 247, 0.35);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.35);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 40px -10px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Multi-stop Text Gradients */
+  .text-gradient-cyan-blue {
+    background: linear-gradient(135deg, #22d3ee 0%, #38bdf8 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-purple-pink {
+    background: linear-gradient(135deg, #c084fc 0%, #f472b6 50%, #fb7185 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-amber-rose {
+    background: linear-gradient(135deg, #fbbf24 0%, #f97316 50%, #f43f5e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-emerald-teal {
+    background: linear-gradient(135deg, #34d399 0%, #2dd4bf 50%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Shimmer button animation */
+  .shimmer-btn {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.15) 35%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.15) 65%,
+      transparent 80%
+    );
+    transform: rotate(30deg) translate(-100%, -100%);
+    animation: shimmer 6s infinite ease-in-out;
+  }
+
+  @keyframes shimmer {
+    0% { transform: rotate(30deg) translate(-150%, -150%); }
+    20%, 100% { transform: rotate(30deg) translate(150%, 150%); }
+  }
+
+  /* Aurora background animation */
+  @keyframes aurora {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(30px, -20px) scale(1.08);
+      opacity: 0.8;
+    }
+  }
+
+  .animate-aurora {
+    animation: aurora 12s infinite ease-in-out alternate;
+  }
+
+  /* Neon text glows */
+  .neon-glow-cyan {
+    text-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+  }
+
+  .neon-glow-amber {
+    text-shadow: 0 0 25px rgba(245, 158, 11, 0.6);
+  }
+
+  .neon-glow-purple {
+    text-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+  }
+
+  /* Floating badges animation */
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(1deg);
+    }
+  }
+
+  @keyframes float-reverse {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(8px) rotate(-1deg);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.35;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.75;
+      transform: scale(1.04);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 5s ease-in-out infinite;
+  }
+
+  .animate-float-reverse {
+    animation: float-reverse 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  /* Cyber Grid with Vignette */
+  .bg-cyber-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse at center, black 45%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 45%, transparent 80%);
+  }
+
+  /* Dot Matrix */
+  .bg-dot-matrix {
+    background-image: radial-gradient(rgba(56, 189, 248, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Pulsing radar ring */
+  @keyframes radar-pulse {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.25);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+  }
+
+  .radar-ring {
+    animation: radar-pulse 3s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+}
+
+/* =========================================================================
+   LUXE WHITE / LIGHT THEME STYLES
+   ========================================================================= */
+.light-theme {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.light-theme main {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Background Gradients & Grids in Light Mode */
+.light-theme .bg-cyber-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.08) 1px, transparent 1px) !important;
+}
+
+.light-theme .bg-dot-matrix {
+  background-image: radial-gradient(rgba(14, 165, 233, 0.12) 1px, transparent 1px) !important;
+}
+
+/* Ensure ALL cards in light mode have pure white background and no dark gradients */
+.light-theme .bg-slate-950,
+.light-theme .bg-slate-950\/95,
+.light-theme .bg-slate-950\/90,
+.light-theme .bg-slate-950\/85,
+.light-theme .bg-slate-950\/80,
+.light-theme .bg-slate-950\/70,
+.light-theme .bg-slate-900,
+.light-theme .bg-slate-900\/90,
+.light-theme .bg-slate-900\/80,
+.light-theme .bg-slate-900\/70,
+.light-theme .bg-slate-900\/60,
+.light-theme .bg-slate-900\/50,
+.light-theme .bg-\[\#060814\],
+.light-theme .bg-\[\#050716\],
+.light-theme .bg-\[\#04060f\],
+.light-theme .bg-\[\#070a1a\],
+.light-theme .bg-\[\#080c24\],
+.light-theme .glass-card {
+  background-image: none !important;
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+}
+
+/* Typography Hierarchy in Light Mode */
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme h5,
+.light-theme h6,
+.light-theme .text-white,
+.light-theme .text-slate-100 {
+  color: #0f172a !important;
+}
+
+.light-theme .text-slate-200,
+.light-theme .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light-theme .text-slate-400 {
+  color: #64748b !important;
+}
+
+/* Borders in Light Mode */
+.light-theme .border-slate-800,
+.light-theme .border-slate-800\/80,
+.light-theme .border-slate-800\/90,
+.light-theme .border-slate-700,
+.light-theme .border-slate-700\/80,
+.light-theme .border-slate-700\/60 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Sub-pills & inputs in Light Mode */
+.light-theme .bg-slate-800,
+.light-theme .bg-slate-800\/90,
+.light-theme .bg-slate-800\/80,
+.light-theme .bg-slate-800\/60,
+.light-theme .bg-slate-800\/50 {
+  background-image: none !important;
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+/* Navbar in Light Mode */
+.light-theme header {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
+}
+
+.light-theme header nav {
+  background-color: rgba(241, 245, 249, 0.9) !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme header nav a {
+  color: #334155 !important;
+}
+
+.light-theme header nav a:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Gradient Titles on White */
+.light-theme h1 span.bg-clip-text {
+  background-image: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #4f46e5 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.light-theme .h-14 span.bg-clip-text,
+.light-theme .h-12 span.bg-clip-text {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Section titles with gradient text */
+.light-theme h2 span.bg-clip-text {
+  background-image: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Accent Badges in Light Mode with High Contrast */
+.light-theme .text-cyan-400,
+.light-theme .text-cyan-300 {
+  color: #0284c7 !important;
+}
+
+.light-theme .text-blue-400,
+.light-theme .text-blue-300,
+.light-theme .text-blue-300\/90 {
+  color: #1d4ed8 !important;
+}
+
+.light-theme .text-emerald-400,
+.light-theme .text-emerald-300 {
+  color: #059669 !important;
+}
+
+.light-theme .text-amber-400,
+.light-theme .text-amber-300 {
+  color: #d97706 !important;
+}
+
+.light-theme .text-purple-400,
+.light-theme .text-purple-300 {
+  color: #7c3aed !important;
+}
+
+/* Project action buttons in light mode */
+.light-theme .bg-gradient-to-r.from-cyan-500\/25,
+.light-theme .bg-gradient-to-r.from-cyan-500\/20 {
+  background-image: none !important;
+  background-color: #e0f2fe !important;
+  border-color: #7dd3fc !important;
+  color: #0369a1 !important;
+}
+
+.light-theme .bg-gradient-to-r.from-cyan-500\/25:hover,
+.light-theme .bg-gradient-to-r.from-cyan-500\/20:hover {
+  background-color: #bae6fd !important;
+  color: #0c4a6e !important;
+}
+
+/* Experience & Spotlight metric pills in light mode */
+.light-theme [class*="bg-cyan-950"] {
+  background-color: #f0f9ff !important;
+  border-color: #bae6fd !important;
+  color: #0369a1 !important;
+}
+.light-theme [class*="bg-cyan-950"] span {
+  color: #0369a1 !important;
+}
+
+.light-theme [class*="bg-amber-950"] {
+  background-color: #fffbeb !important;
+  border-color: #fde68a !important;
+  color: #92400e !important;
+}
+.light-theme [class*="bg-amber-950"] span {
+  color: #92400e !important;
+}
+
+.light-theme [class*="bg-blue-950"] {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #1e40af !important;
+}
+.light-theme [class*="bg-blue-950"] span {
+  color: #1e40af !important;
+}
+
+.light-theme [class*="bg-indigo-950"] {
+  background-color: #eef2ff !important;
+  border-color: #c7d2fe !important;
+  color: #3730a3 !important;
+}
+.light-theme [class*="bg-indigo-950"] span {
+  color: #3730a3 !important;
+}
+
+.light-theme [class*="bg-emerald-950"] {
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+  color: #065f46 !important;
+}
+.light-theme [class*="bg-emerald-950"] span {
+  color: #065f46 !important;
+}
+
+.light-theme [class*="bg-red-950"] {
+  background-color: #fef2f2 !important;
+  border-color: #fecaca !important;
+  color: #991b1b !important;
+}
+.light-theme [class*="bg-red-950"] span {
+  color: #991b1b !important;
+}
+
+/* Tech tag chips & pill badges in light mode */
+.light-theme span[class*="rounded-xl"],
+.light-theme span[class*="rounded-lg"],
+.light-theme span[class*="rounded-md"] {
+  border-color: #e2e8f0;
+}
+
+.light-theme .pt-5 span.rounded-xl,
+.light-theme .pt-4 span.rounded-lg,
+.light-theme .space-y-4 span.rounded-lg {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+  font-weight: 600 !important;
+}
+
+/* Form inputs, select, and textarea in light mode */
+.light-theme input,
+.light-theme select,
+.light-theme textarea {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+/* Responsive Navbar Utilities */
+@media (max-width: 860px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .desktop-actions {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 861px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+  .desktop-actions {
+    display: flex !important;
+  }
+  .mobile-toggle {
+    display: none !important;
+  }
+}
+
+/* Light Theme Contrast Enhancements */
+.light-theme {
+  color: #0f172a;
+}
+.light-theme p {
+  color: #334155;
+}
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4 {
+  color: #0f172a;
+}
+
+.light-theme input::placeholder,
+.light-theme textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light-theme input:focus,
+.light-theme select:focus,
+.light-theme textarea:focus {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12) !important;
+}
+
+/* Hero Stat Cards in light mode */
+.light-theme .hero-stat-card,
+.light-theme .mt-16.grid > div {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+}
+
+.light-theme .mt-16.grid > div:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(203, 213, 225, 1) !important;
+}
+
+/* Timeline vertical line in light mode */
+.light-theme .border-l-2 {
+  border-color: #cbd5e1 !important;
+}
+
+/* Card hover elevations */
+.light-theme .group:hover > div.rounded-3xl,
+.light-theme div.rounded-3xl:hover {
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(203, 213, 225, 0.9) !important;
+}
+
+/* Keep Hero Terminal looking like a pristine dark IDE box */
+.light-theme .hero-terminal {
+  background-color: #0b0f19 !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25) !important;
+}
+
+.light-theme .hero-terminal h1,
+.light-theme .hero-terminal h2,
+.light-theme .hero-terminal h3,
+.light-theme .hero-terminal p,
+.light-theme .hero-terminal span,
+.light-theme .hero-terminal div {
+  color: revert !important;
+}
+
+.light-theme .hero-terminal .bg-slate-900\/90 {
+  background-color: #111827 !important;
+  border-color: #1f2937 !important;
+}
+
+.light-theme .hero-terminal .text-slate-300 {
+  color: #cbd5e1 !important;
+}
+
+.light-theme .hero-terminal .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+.light-theme .hero-terminal .text-purple-400 {
+  color: #c084fc !important;
+}
+
+.light-theme .hero-terminal .text-yellow-300 {
+  color: #fde047 !important;
+}
+
+.light-theme .hero-terminal .text-blue-400 {
+  color: #60a5fa !important;
+}
+
+.light-theme .hero-terminal .text-emerald-300 {
+  color: #6ee7b7 !important;
+}
+
+.light-theme .hero-terminal .text-cyan-300,
+.light-theme .hero-terminal .text-cyan-400 {
+  color: #67e8f9 !important;
+}
+
+/* Ambient glow opacity softer in light mode */
+.light-theme .blur-\[170px\],
+.light-theme .blur-\[180px\],
+.light-theme .blur-\[160px\],
+.light-theme .blur-\[150px\],
+.light-theme .blur-\[140px\] {
+  opacity: 0.18 !important;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-resume,
+  #printable-resume * {
+    visibility: visible;
+  }
+
+  #printable-resume {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
