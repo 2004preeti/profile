@@ -33,7 +33,145 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   if (!isOpen) return null;
 
   const handlePrint = () => {
-    window.print();
+    const resumeEl = document.getElementById("printable-resume");
+    if (!resumeEl) {
+      window.print();
+      return;
+    }
+
+    // Create an isolated hidden iframe so only the resume is printed
+    const printFrame = document.createElement("iframe");
+    printFrame.setAttribute("style", "position:fixed;top:-9999px;left:-9999px;width:0;height:0;border:0;");
+    document.body.appendChild(printFrame);
+
+    const doc = printFrame.contentWindow?.document;
+    if (!doc) return;
+
+    doc.open();
+    doc.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Preeti Pal - Resume</title>
+          <style>
+            @page {
+              size: A4 portrait;
+              margin: 10mm 12mm 10mm 12mm;
+            }
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+            }
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+              color: #111827;
+              background: #ffffff;
+              line-height: 1.35;
+              font-size: 11px;
+              padding: 0;
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: 800;
+              text-transform: uppercase;
+              letter-spacing: -0.5px;
+              margin-bottom: 2px;
+              color: #000000;
+            }
+            h2 {
+              font-size: 11.5px;
+              font-weight: 800;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-bottom: 1.5px solid #111827;
+              padding-bottom: 2px;
+              margin-top: 10px;
+              margin-bottom: 5px;
+              color: #000000;
+            }
+            p, li, div {
+              font-size: 10.5px;
+              color: #1f2937;
+            }
+            a {
+              color: #111827;
+              text-decoration: none;
+            }
+            ul {
+              margin-left: 18px;
+              margin-bottom: 4px;
+            }
+            li {
+              margin-bottom: 2px;
+              line-height: 1.35;
+            }
+            .grid {
+              display: grid;
+            }
+            .sm\\:grid-cols-2 {
+              grid-template-columns: 1fr 1fr;
+            }
+            .sm\\:text-right {
+              text-align: right;
+            }
+            .flex {
+              display: flex;
+            }
+            .justify-between {
+              justify-content: space-between;
+            }
+            .items-baseline {
+              align-items: baseline;
+            }
+            .font-bold {
+              font-weight: 700;
+              color: #000000;
+            }
+            .font-semibold {
+              font-weight: 600;
+              color: #111827;
+            }
+            .italic {
+              font-style: italic;
+            }
+            .text-slate-500, .text-slate-600 {
+              color: #4b5563 !important;
+            }
+            .text-slate-700, .text-slate-800 {
+              color: #1f2937 !important;
+            }
+            .text-black, .text-white {
+              color: #000000 !important;
+            }
+            .bg-slate-950, .bg-slate-900, .bg-white {
+              background: #ffffff !important;
+            }
+            .border-slate-800, .border-slate-200 {
+              border-color: #cbd5e1 !important;
+            }
+            /* Clean print layout */
+            .mb-4 { margin-bottom: 8px; }
+            .mb-3\\.5 { margin-bottom: 7px; }
+            .space-y-1 > * + * { margin-top: 2px; }
+          </style>
+        </head>
+        <body>
+          ${resumeEl.innerHTML}
+        </body>
+      </html>
+    `);
+    doc.close();
+
+    printFrame.contentWindow?.focus();
+    setTimeout(() => {
+      printFrame.contentWindow?.print();
+      setTimeout(() => {
+        if (document.body.contains(printFrame)) {
+          document.body.removeChild(printFrame);
+        }
+      }, 2000);
+    }, 300);
   };
 
   const resumePlainText = `PREETI PAL
