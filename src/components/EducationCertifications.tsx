@@ -7,17 +7,20 @@ import { EDUCATION, CERTIFICATIONS } from "@/data/portfolioData";
 export const EducationCertifications: React.FC = () => {
   return (
     <section id="education" className="py-20 relative">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-purple-600/10 blur-[150px] -z-10 rounded-full pointer-events-none"></div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold uppercase tracking-wider mb-3 backdrop-blur-xl">
             <GraduationCap className="w-3.5 h-3.5" />
             <span>Credentials</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
             Education &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 dark:from-purple-400 dark:via-pink-400 dark:to-indigo-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">
               Certifications
             </span>
           </h2>
@@ -25,39 +28,41 @@ export const EducationCertifications: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
           {/* Education Card */}
-          <div className="md:col-span-6 p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
-                <GraduationCap className="w-5 h-5" />
+          <div className="md:col-span-6 p-7 rounded-3xl bg-slate-900/70 border border-purple-500/30 shadow-2xl backdrop-blur-2xl space-y-4 relative overflow-hidden group hover:border-purple-400/60 transition-all duration-300">
+            <div className="absolute top-0 right-0 w-28 h-28 bg-purple-500/10 rounded-bl-full blur-xl pointer-events-none group-hover:scale-125 transition-transform"></div>
+
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/30 backdrop-blur-md">
+                <GraduationCap className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-black text-slate-900 dark:text-white">
+                <h3 className="text-xl font-black text-white">
                   {EDUCATION.degree}
                 </h3>
-                <p className="text-xs font-semibold text-purple-600 dark:text-purple-400">
+                <p className="text-xs font-semibold text-purple-300">
                   {EDUCATION.field}
                 </p>
               </div>
             </div>
 
             <div className="space-y-1">
-              <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">
+              <h4 className="text-sm font-bold text-slate-200">
                 {EDUCATION.institution}
               </h4>
-              <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+              <div className="flex flex-wrap items-center gap-3 text-xs text-slate-400">
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3 text-purple-500" />
+                  <Calendar className="w-3.5 h-3.5 text-purple-400" />
                   {EDUCATION.period}
                 </span>
                 <span>•</span>
                 <span className="flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-slate-400" />
+                  <MapPin className="w-3.5 h-3.5 text-slate-500" />
                   {EDUCATION.location}
                 </span>
               </div>
             </div>
 
-            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 space-y-1">
+            <div className="pt-3 border-t border-white/10 text-xs text-slate-300 space-y-1.5 leading-relaxed">
               <p>• Relevant Coursework: Data Structures & Algorithms, DBMS, Operating Systems, OOP</p>
               <p>• Active participant in technical competitions and algorithmic problem-solving</p>
             </div>
@@ -68,19 +73,19 @@ export const EducationCertifications: React.FC = () => {
             {CERTIFICATIONS.map((cert, index) => (
               <div
                 key={index}
-                className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between"
+                className="p-5 rounded-2xl bg-slate-900/70 border border-white/10 shadow-2xl backdrop-blur-2xl hover:border-purple-500/40 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-purple-500/15 text-purple-300 border border-purple-500/30">
                       {cert.issuer}
                     </span>
-                    <Award className="w-3.5 h-3.5 text-purple-500" />
+                    <Award className="w-4 h-4 text-purple-400" />
                   </div>
-                  <h4 className="text-xs font-bold text-slate-900 dark:text-white mb-1">
+                  <h4 className="text-xs font-bold text-white mb-1.5">
                     {cert.name}
                   </h4>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
                     {cert.description}
                   </p>
                 </div>
